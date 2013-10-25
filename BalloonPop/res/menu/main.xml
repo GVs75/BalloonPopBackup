@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/enableBT"
+          android:title="@string/enable"
+          android:showAsAction="never" /> 
+          
+    <item
+        android:id="@+id/action_discover"
+        android:title="@string/action_discover"
+        android:showAsAction="never"/>
+    
+    
+    <item android:id="@+id/discoverable"
+          android:title="@string/discoverable"
+          android:showAsAction="never" />   
+    
+    <item android:id="@+id/disconnect"
+          android:title="@string/action_disconnect"
+          android:showAsAction="never" /> 
+          
+    <item
+        android:id="@+id/action_exit"
+        android:title="@string/action_exit"
+        android:showAsAction="never"/>          
+</menu>
