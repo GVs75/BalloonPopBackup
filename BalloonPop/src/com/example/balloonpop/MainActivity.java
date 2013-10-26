@@ -45,10 +45,10 @@ public class MainActivity extends Activity implements SensorEventListener{
     private static final int REQUEST_ENABLE_BT = 3;
 
     
-	private SensorManager 		mSensorManager;  
-	private Sensor 				mAccelerometer;
-	private GameView 			mGameView = null;
-	private BluetoothAdapter 	mBluetoothAdapter = null;
+	private SensorManager 		mSensorManager 		= null;  
+	private Sensor 				mAccelerometer 		= null;
+	private GameView 			mGameView 			= null;
+	private BluetoothAdapter 	mBluetoothAdapter 	= null;
 
     private BluetoothService 	mBTService = null;
     private String 				mConnectedDeviceName = null;
@@ -99,13 +99,15 @@ public class MainActivity extends Activity implements SensorEventListener{
         if(D) Log.e(TAG, "++ ON START ++");
 
         // If BT is not on, request that it be enabled.
-        if (!mBluetoothAdapter.isEnabled()) {
-            //Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            //startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-            mIsBTenabled = false;
-        } else {
-            if (mBTService == null) setupBTService();
-            mIsBTenabled = true;
+        if (mBluetoothAdapter != null) {			//Commit: Added mBluetoothAdapter check if it is null
+	        if (!mBluetoothAdapter.isEnabled()) {
+	            //Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+	            //startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+	            mIsBTenabled = false;
+	        } else {
+	            if (mBTService == null) setupBTService();
+	            mIsBTenabled = true;
+	        }
         }
       
     }
