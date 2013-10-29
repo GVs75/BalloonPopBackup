@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 	
     // Debugging
     private static final String TAG = "Bluetooth";
-    private static final boolean D = true;
+    private static final boolean D = false;
 
     // Message types sent from the BluetoothService Handler
     public static final int MESSAGE_STATE_CHANGE = 1;

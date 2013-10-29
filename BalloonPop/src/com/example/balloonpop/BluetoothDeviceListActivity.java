@@ -46,7 +46,7 @@ import android.widget.TextView;
 public class BluetoothDeviceListActivity extends Activity {
     // Debugging
     private static final String TAG = "BluetoothDeviceListActivity";
-    private static final boolean D = true;
+    private static final boolean D = false;
 
     // Return Intent extra
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
