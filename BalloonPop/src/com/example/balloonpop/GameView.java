@@ -1,5 +1,6 @@
 package com.example.balloonpop;
 
+//GameView class
 
 import android.content.Context;
 import android.graphics.Bitmap;
