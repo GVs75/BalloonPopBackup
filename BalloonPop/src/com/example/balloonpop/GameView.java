@@ -36,8 +36,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 	//private String info = "";
 	private float[] acc = new float[3];
 	
-	private SoundPool soundPool;
-	private int soundID;	
+	private SoundPool 	mSoundPool;
+	private int 		mSoundID;	
 
 	public GameView(Context context) {
 		super(context);
@@ -54,8 +54,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 		mPaintText.setColor(Color.WHITE);
 		mPaintText.setTextSize(32);
 				
-		soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-		soundID = soundPool.load(context, R.raw.waterballoon, 1);
+		mSoundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+		mSoundID = mSoundPool.load(context, R.raw.waterballoon, 1);
 	}
 	
 	@Override
