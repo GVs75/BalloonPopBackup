@@ -6,7 +6,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.Shader.TileMode;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -20,6 +24,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 	private Bitmap mBallons;
 	private Bitmap mBitmap_Star;
 	private Group  mGroup;
+	
+	private Shader mShader;
+	private Paint  mPaintShader;
 	
 	private int 	mScore = 0;
 	private Paint	 mPaintText;
@@ -44,7 +51,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 		mPaintText = new Paint();
 		mPaintText.setColor(Color.WHITE);
 		mPaintText.setTextSize(32);
-		
+				
 		//soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
 		//soundID = soundPool.load(context, R.raw.waterballoon, 1);
 	}
@@ -67,6 +74,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 		mGameLoopThread = new GameLoopThread(this);
 		mGameLoopThread.setRunning(true);
 		mGameLoopThread.start();
+		
+		mShader = new LinearGradient(0, 0, 0, getHeight(), Color.rgb(0, 0, 64), Color.BLACK, TileMode.CLAMP);
+		mPaintShader = new Paint(); 
+		mPaintShader.setShader(mShader); 
 		
 		initGroup();
 		
@@ -135,7 +146,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 	}
 	
 	public void myDraw(Canvas canvas) {
-		canvas.drawColor(Color.BLACK);
+		
+		
+		
+		//Commit: Adding gradient to BackGround
+		//canvas.drawColor(Color.BLACK);											//<-- Commented
+		canvas.drawRect(new RectF(0, 0, getWidth(), getHeight()), mPaintShader); 	//<-- Added
+				
 		canvas.drawText("Score: "+mScore, 30, 30, mPaintText);
 		mGroup.drawAll(canvas);
 		
