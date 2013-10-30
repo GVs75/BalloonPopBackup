@@ -296,7 +296,7 @@ public class MainActivity extends Activity implements SensorEventListener{
     }
     
     private void setupBTService() {
-        Log.d(TAG, "setupBTService()");
+    	if (D) Log.d(TAG, "setupBTService()");
 
         // Initialize the BluetoothService to perform bluetooth connections
         mBTService = new BluetoothService(this, mHandler);
