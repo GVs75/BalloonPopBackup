@@ -11,6 +11,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -34,8 +36,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 	//private String info = "";
 	private float[] acc = new float[3];
 	
-	//private SoundPool soundPool;
-	//private int soundID;	
+	private SoundPool soundPool;
+	private int soundID;	
 
 	public GameView(Context context) {
 		super(context);
@@ -52,8 +54,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 		mPaintText.setColor(Color.WHITE);
 		mPaintText.setTextSize(32);
 				
-		//soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-		//soundID = soundPool.load(context, R.raw.waterballoon, 1);
+		soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+		soundID = soundPool.load(context, R.raw.waterballoon, 1);
 	}
 	
 	@Override
