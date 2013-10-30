@@ -109,6 +109,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 						if (index != -1){
 							mGroup.remove(index);
 							mScore++;
+							
+							//Commit: adding play sound when balloon pops
+							mSoundPool.play(mSoundID, 1.0f, 1.0f, 0, 0, 1.0f);
+							
 						}else {
 							//Adding Balloon if clicking outside
 							MainActivity main = (MainActivity)getContext();
